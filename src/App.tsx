@@ -1,16 +1,11 @@
 import React from 'react';
 import './App.css';
-import { ThemeProvider, createTheme  } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import SignIn from './components/forms/LoginForm';
+import AuthPage from './pages/AuthPage';
+
 
 function App() {
-  const theme = createTheme();
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <SignIn />
-    </ThemeProvider>
+    <AuthPage/>
   );
 }
 

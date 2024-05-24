@@ -1,4 +1,3 @@
-import axios from "axios";
 import axiosConfig from "../utils/config/axios.config";
 
 
@@ -26,16 +25,18 @@ export const login = (email:string, password:string) => {
  * @param {string} email Email del usuario
  * @param {string} password Contrasena del usuario
  * @param {number} age Edad del usuario
+ * @param {string} phone Edad del usuario
  * @returns peticion POST a la API
  */
-export const register = (name:string, email:string, password:string, age:number) => {
+export const register = (name:string, email:string, password:string, age:number, phone: string) => {
 
     // Declaramos el body para incluirlo en el POST
     const body = {
         name,
         email,
         password,
-        age
+        age,
+        phone
     }
 
     // Enviamos la peticion POST al endpoint de login
