@@ -64,7 +64,7 @@ export default function LoginForm() {
                         <ErrorMessage name="password" component='div'></ErrorMessage>
                     )
                   }
-                  <button type='submit'>Log in</button>
+                  <button type='submit'>Login</button>
                   {
                     isSubmitting ? (<p>Comprobando credenciales</p>) : null
                   }

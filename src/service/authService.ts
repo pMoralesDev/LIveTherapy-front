@@ -28,12 +28,13 @@ export const login = (email:string, password:string) => {
  * @param {string} phone Edad del usuario
  * @returns peticion POST a la API
  */
-export const register = (name:string, email:string, password:string, age:number, phone: string) => {
+export const register = (name:string, email:string, role:string, password:string, age:number, phone: string) => {
 
     // Declaramos el body para incluirlo en el POST
     const body = {
         name,
         email,
+        role,
         password,
         age,
         phone
