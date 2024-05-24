@@ -5,14 +5,6 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-@keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 body{
     display: flex;
     align-items: center;
@@ -50,6 +42,9 @@ body{
     text-decoration: none;
     margin: 15px 0 10px;
 }
+.container .auth-boton{
+    text-align: center;
+}
 .container button{
     background-color: #fff;
     color: #202020;
@@ -67,7 +62,7 @@ body{
     background-color: transparent;
     background-color: #ddd;
 }
-.container form{
+.container .sub-container{
     background-color: #202020;
     display: flex;
     align-items: center;

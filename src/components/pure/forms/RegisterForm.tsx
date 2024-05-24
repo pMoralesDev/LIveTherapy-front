@@ -2,11 +2,13 @@ import React from 'react'
 import '../../../styles/authPage.css'
 import { Input } from '@mui/material'
 import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 export default function RegisterForm() {
   return (
     <section className='form-container sign-up'>
-      <form>
+      <div className='sub-container'>
         <h1>Crea una cuenta</h1>
         <div className='social-icons'>
           <a href='https://github.com/pMoralesDev' className="icon">
@@ -26,7 +28,7 @@ export default function RegisterForm() {
         <Input type='number' placeholder='Edad'></Input>
         <Input type='text' placeholder='Teléfono'></Input>
         <button>Registrarte</button>
-      </form>
+      </div>
     </section>
   )
 }
