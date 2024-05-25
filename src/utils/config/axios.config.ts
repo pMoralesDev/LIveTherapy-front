@@ -1,11 +1,16 @@
 import axios from "axios";
 
+const token = localStorage.getItem('token');
+
 export default axios.create(
 
     {
-        baseURL:'http://localhost:8000/api',
+        baseURL:'/api',
         responseType: 'json',
-        timeout: 6000
+        timeout: 6000,
+        headers: {
+            Authorization: `Bearer ${token}`
+          },
     }
 
 )

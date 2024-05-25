@@ -54,10 +54,12 @@ const AuthPage: React.FC = () => {
   }
 
   return (
-    <div className={`container ${isSignUp ? 'active' : ''}`}>
-      <LoginForm />
-      <RegisterForm />
-      <AuthToggle onSignUpClick={handleSignUpClick} onSignInClick={handleSignInClick} />
+    <div className='auth-fondo'>
+      <div className={`container-Auth ${isSignUp ? 'active' : ''}`}>
+        <LoginForm />
+        <RegisterForm />
+        <AuthToggle onSignUpClick={handleSignUpClick} onSignInClick={handleSignInClick} />
+      </div>
     </div>
   );
 };
