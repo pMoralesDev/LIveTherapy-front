@@ -13,14 +13,14 @@ interface AuthToggleProps {
         <div className="toggle">
           <div className="toggle-panel toggle-left">
             <h1>¿Eres nuevo?</h1>
-            <p>Registrate para acceder a las funcionalidades</p>
+            <p style={{color:'#fff'}}>Registrate para acceder a las funcionalidades</p>
             <button className="hidden" id="login" onClick={onSignInClick}>
               Registrate
             </button>
           </div>
           <div className="toggle-panel toggle-right">
             <h1>Hola de nuevo</h1>
-            <p>Incia Sesion para acceder a todas las funcionalidades</p>
+            <p style={{color:'#fff'}}>Incia Sesion para acceder a todas las funcionalidades</p>
             <button className="hidden" id="register" onClick={onSignUpClick}>
               Login
             </button>
