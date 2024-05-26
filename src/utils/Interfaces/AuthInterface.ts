@@ -22,4 +22,6 @@ export const AuthContext = createContext<AuthContextProps>({
     user: null,
     login: (token:string) => {},
     logout: () => {}
-  });
+});
+
+  

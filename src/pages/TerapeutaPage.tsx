@@ -1,10 +1,59 @@
-import React from 'react'
-import DashboardTerapeuta from '../components/Terapeuta/Dashboard'
+import React, { useState } from 'react';
+import { CssBaseline, Container, Grid } from '@mui/material';
 
-export default function TerapeutaPage() {
+import TerapeutaSidebar from '../components/Terapeuta/TerapeutaSidebar';
+import TerapeutaCuestionarios from '../components/Terapeuta/Terapeuta cuestionarios';
+import TerapeutaRegistros from '../components/Terapeuta/TerapeutaRegistros';
+import TerapeutaInformes from '../components/Terapeuta/TerapeutaInformes';
+import TerapeutaPacientes from '../components/Terapeuta/TerapeutaPacientes';
+import TerapeutaAgenda from '../components/Terapeuta/TerapeutaAgenda';
+import TerapeutaHeader from '../components/Terapeuta/TerapeutaHeader';
+import TerapeutaConfiguracion from '../components/Terapeuta/TerapeutaCongifuracion';
+
+
+const TerapeutaPage: React.FC = () => {
+
+  const [currentPage, setCurrentPage] = useState<string>('cuestionarios');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'cuestionarios':
+        return <TerapeutaCuestionarios />;
+      case 'registros':
+        return <TerapeutaRegistros />;
+      case 'informes':
+        return <TerapeutaInformes />;
+      case 'pacientes':
+        return <TerapeutaPacientes />;
+      case 'agenda':
+        return <TerapeutaAgenda />;
+      case 'configuracion':
+        return <TerapeutaConfiguracion />;
+      default:
+        return <TerapeutaCuestionarios />;
+    }
+  };
+
   return (
-    <div>
-      <DashboardTerapeuta/>
-    </div>
-  )
-}
+    <>
+      <CssBaseline />
+      <Grid container direction="column">
+        <Grid item>
+          <TerapeutaHeader />
+        </Grid>
+        <Grid item container>
+          <Grid item>
+            <TerapeutaSidebar setCurrentPage={setCurrentPage} />
+          </Grid>
+          <Grid item xs>
+            <Container component="main" style={{ marginTop: '64px' }}>
+              {renderPage()}
+            </Container>
+          </Grid>
+        </Grid>
+      </Grid>
+    </>
+  );
+};
+
+export default TerapeutaPage;

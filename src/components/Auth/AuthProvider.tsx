@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { AuthContext, AuthProviderProps, AuthUser } from "../../utils/Interfaces/AuthInterface";
 import { jwtDecode } from "jwt-decode";
-
+import { useNavigate } from "react-router-dom";
 
 const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,8 +33,9 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   
     const logout = () => {
       localStorage.removeItem('token');
-      setUser(null);
+      localStorage.removeItem('user');
       setIsLoggedIn(false);
+      setUser(null);
     };
   
     return (
@@ -43,5 +44,5 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
       </AuthContext.Provider>
     );
   };
-  
-  export default AuthProvider;
+
+export default AuthProvider;

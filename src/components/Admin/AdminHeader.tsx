@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, IconButton } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { AuthContext } from '../../utils/Interfaces/AuthInterface';
 
 interface HeaderProps {
   onSelectTable: (table: string) => void;
 }
 
 const AdminHeader: React.FC<HeaderProps> = ({ onSelectTable }) => {
+
+  const { logout: authLogout } = useContext(AuthContext);
+
   return (
     <AppBar position="sticky">
       <Toolbar>
@@ -22,7 +26,7 @@ const AdminHeader: React.FC<HeaderProps> = ({ onSelectTable }) => {
             <Button color="inherit" onClick={() => onSelectTable('citas')}>Citas</Button>
           </Box>
           <Box sx={{ flexGrow: 1, textAlign: 'right' }}>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick={authLogout}>
               <LogoutIcon />
             </IconButton>
           </Box>
