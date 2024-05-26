@@ -41,7 +41,7 @@ const PacienteHeader: React.FC = () => {
     <AppBar position="static">
       <Toolbar>
         <Box sx={{ flexGrow: 1 }}>
-          <img src="logo.png" alt="Logo" style={{ marginRight: '16px' }} />
+          <img src={`${process.env.PUBLIC_URL}/media/MoralesDev.png`} alt="Logo" style={{ marginRight: '16px' }} />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography variant="h6" noWrap component="div">

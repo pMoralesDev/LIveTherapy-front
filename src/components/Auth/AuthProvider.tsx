@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { AuthContext, AuthProviderProps, AuthUser } from "../../utils/Interfaces/AuthInterface";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
 
 const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
