@@ -5,7 +5,7 @@ import PacienteSidebar from '../components/Paciente/PacienteSidebar';
 import PacienteCuestionarios from '../components/Paciente/PacienteCuestionarios';
 import PacienteInformes from '../components/Paciente/PacienteInformes';
 import PacienteCitas from '../components/Paciente/PacienteCitas';
-import PacienteConfiguracion from '../components/Paciente/PacienteConfiguracion';
+import UserConfiguracion from '../components/UserConfiguration';
 
 const PacientePage: React.FC = () => {
 
@@ -20,7 +20,7 @@ const PacientePage: React.FC = () => {
       case 'mis-citas':
         return <PacienteCitas />;
       case 'configuracion':
-        return <PacienteConfiguracion />;
+        return <UserConfiguracion />;
       default:
         return <PacienteCuestionarios />;
     }
@@ -30,15 +30,15 @@ const PacientePage: React.FC = () => {
     <>
       <CssBaseline />
       <Grid container direction="column">
-        <Grid item>
+        <Grid item xs={12}>
           <PacienteHeader />
         </Grid>
-        <Grid item container>
-          <Grid item>
+        <Grid item container style={{ flexWrap: 'nowrap' }}>
+          <Grid item xs={1} >
             <PacienteSidebar setCurrentPage={setCurrentPage} />
           </Grid>
-          <Grid item xs>
-            <Container component="main" style={{ marginTop: '64px' }}>
+          <Grid item xs={11}>
+            <Container component="main" style={{ marginTop: '2rem', marginLeft: '3rem', marginRight:'2rem' }}>
               {renderPage()}
             </Container>
           </Grid>

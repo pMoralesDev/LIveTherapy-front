@@ -1,4 +1,5 @@
-import { Registro } from "./Registros.interface";
+import { Cuestionario } from "./Cuestionarios.interface";
+
 
 export interface Terapia {
     _id: string;
@@ -6,6 +7,6 @@ export interface Terapia {
     idTerapeuta: string;
     idPaciente: string;
     citas: string[];
-    registros: Registro[];
+    registros: Cuestionario[];
     chat: string[];
   }

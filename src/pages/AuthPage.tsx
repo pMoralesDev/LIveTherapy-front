@@ -20,14 +20,14 @@ const AuthPage: React.FC = () => {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const decoded: AuthUser = jwtDecode(token);
+          const user: AuthUser = jwtDecode(token);
           login(token);
           setHasCheckedToken(true); 
-          if (decoded.role === 'admin') {
+          if (user.role === 'admin') {
             navigate('/admin');
-          } else if (decoded.role === 'terapeuta') {
+          } else if (user.role === 'terapeuta') {
             navigate('/terapeuta');
-          } else if (decoded) {
+          } else if (user) {
             navigate('/paciente');
           }
         } catch (error) {

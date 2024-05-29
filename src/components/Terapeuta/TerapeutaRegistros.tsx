@@ -1,37 +1,26 @@
-import React, { useContext, useEffect, useState } from 'react';
-import axiosConfig from '../../utils/config/axios.config';
+import React, { useEffect, useState } from 'react';
 import { Container, CssBaseline, Grid, Typography } from '@mui/material';
 import RegstroTerapeutaCard from './Cards/RegistroTerapeutaCard';
-import { Registro } from '../../utils/Interfaces/Registros.interface';
-import { Terapia } from '../../utils/Interfaces/Terapia.interface';
-import { AuthContext } from '../../utils/Interfaces/AuthInterface';
+import { fetchCuestionariosForUser } from '../../service/terapeutasService';
+import { Cuestionario } from '../../utils/Interfaces/Cuestionarios.interface';
 
 const TerapeutaRegistros: React.FC = () => {
-  const [registros, setRegistros] = useState<Registro[]>([]);
-  const { user } = useContext(AuthContext);
+  const [registros, setRegistros] = useState<Cuestionario[]>([]);
 
   useEffect(() => {
-    const fetchRegistros = async () => {
-      if (!user) {
-        return;
-      }
-
-      try {
-        const response = await axiosConfig.get('/terapias');
-        const terapias: Terapia[] = response.data;
-        const registrosFiltrados = terapias
-          .filter((terapia) => terapia.idTerapeuta === String(user))
-          .flatMap((terapia) => terapia.registros);
-        setRegistros(registrosFiltrados);
-      } catch (error) {
-        console.error('Error fetching registros:', error);
+    const fetchData = async () => {
+      let token = localStorage.getItem('token');
+      if (token) {
+        const registros = await fetchCuestionariosForUser( token); 
+        setRegistros(registros);
+        console.log(`${registros}`);
+      } else {
+        console.log('No se encuenta el token del usuario');
       }
     };
 
-    if (user) {
-      fetchRegistros();
-    }
-  }, [user]);
+    fetchData();
+  });
 
   return (
     <>

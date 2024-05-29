@@ -4,7 +4,8 @@ import { Container } from '@mui/material';
 import AdminHeader from '../components/Admin/AdminHeader';
 import AdminDataTable from '../components/Admin/AdimTables';
 import axiosConfig from '../utils/config/axios.config';
-import { tables, TableConfig } from '../utils/Interfaces/TablesAdmin.Interface';
+import { tables } from '../utils/Interfaces/TablesAdmin.Interface';
+import { addNewItem, deleteItem, getNewRowTemplate, updateItem } from '../service/adminService';
 
 
 const AdminDashboard: React.FC = () => {
@@ -17,6 +18,7 @@ const AdminDashboard: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await axiosConfig.get(tables[currentTable].apiEndpoint);
+        console.log(response.data)
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -26,37 +28,18 @@ const AdminDashboard: React.FC = () => {
     fetchData();
   }, [currentTable]);
 
-  const handleUpdate = (id: number) => {
-    // Lógica de actualización
-    console.log('Update row with id:', id);
+  const handleUpdate = () => {
+    //TODO: pendiente implementar => definir un formulario, caputar los datos, enviar los datos, actualizar el estado local, manejar errores. 
+    // setData(updateItem(id, data, apiEndpoint));
   };
 
   const handleDelete = (id: number) => {
-    // Lógica de eliminación
-    setData(data.filter(row => row.id !== id));
+    setData(deleteItem(data, id));
   };
 
   const handleAddNew = () => {
-    // Lógica para agregar un nuevo elemento
-    const newId = data.length ? data[data.length - 1].id + 1 : 1;
-    setData([...data, { id: newId, ...getNewRowTemplate(currentTable) }]);
-  };
-
-  const getNewRowTemplate = (table: string) => {
-    switch (table) {
-      case 'usuarios':
-        return { _id: '', role: '', name: '', email: '', password: '', age: 0, phone: '' };
-      case 'terapias':
-        return { name: '', idTerapeuta: '', idPaciente: '', citas: [], registros: [], chat: [] };
-      case 'cuestionarios':
-        return { _id: '', name: '', modelo: false, tipo: '', preguntas: [], respuestas: [] };
-      case 'preguntas':
-        return { _id: '', name: '', text: '', tipo: '' };
-      case 'citas':
-        return { _id: '', date: new Date(), acude: true, informe: '' };
-      default:
-        return {};
-    }
+    const newRow = getNewRowTemplate(currentTable);
+    setData(addNewItem(data, newRow));
   };
 
   return (

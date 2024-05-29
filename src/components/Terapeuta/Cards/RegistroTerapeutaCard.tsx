@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { Registro } from "../../../utils/Interfaces/Registros.interface";
+import { Cuestionario } from "../../../utils/Interfaces/Cuestionarios.interface";
 
-const RegstroTerapeutaCard: React.FC<Registro> = ({ _id, name, modelo, tipo, preguntas, respuestas }) => {
+const RegstroTerapeutaCard: React.FC<Cuestionario> = ({ _id, name, modelo, tipo, preguntas, respuestas }) => {
     return (
       <Card sx={{ minWidth: 275, marginBottom: 2 }}>
       <CardContent>

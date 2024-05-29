@@ -8,7 +8,7 @@ import TerapeutaInformes from '../components/Terapeuta/TerapeutaInformes';
 import TerapeutaPacientes from '../components/Terapeuta/TerapeutaPacientes';
 import TerapeutaAgenda from '../components/Terapeuta/TerapeutaAgenda';
 import TerapeutaHeader from '../components/Terapeuta/TerapeutaHeader';
-import TerapeutaConfiguracion from '../components/Terapeuta/TerapeutaCongifuracion';
+import UserConfiguracion from '../components/UserConfiguration';
 
 
 const TerapeutaPage: React.FC = () => {
@@ -28,7 +28,7 @@ const TerapeutaPage: React.FC = () => {
       case 'agenda':
         return <TerapeutaAgenda />;
       case 'configuracion':
-        return <TerapeutaConfiguracion />;
+        return <UserConfiguracion />;
       default:
         return <TerapeutaCuestionarios />;
     }
@@ -46,7 +46,7 @@ const TerapeutaPage: React.FC = () => {
             <TerapeutaSidebar setCurrentPage={setCurrentPage} />
           </Grid>
           <Grid item xs>
-            <Container component="main" style={{ marginTop: '64px' }}>
+            <Container component="main" style={{ marginTop: '2rem', marginLeft: '2rem', marginRight:'2rem' }}>
               {renderPage()}
             </Container>
           </Grid>
