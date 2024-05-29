@@ -1,24 +1,55 @@
-import { Card, CardContent, Typography } from "@mui/material";
-import { Cuestionario } from "../../../utils/Interfaces/Cuestionarios.interface";
+import { Button, Card, CardContent, List, ListItem, ListItemText, Typography, styled } from "@mui/material";
+import { ICuestionario } from "../../../utils/Interfaces/back/ICuestionario.interface";
 
-const CuestionarioTerapeutaCard: React.FC<Cuestionario> = ({ _id, name, modelo, tipo, preguntas, respuestas }) => {
+interface CuestionarioCardProps {
+  cuestionario: ICuestionario;
+}
+
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+  backgroundColor: '#ffffff',
+  borderRadius: '8px',
+  boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+  padding: theme.spacing(2),
+  marginBottom: theme.spacing(2)
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(1)
+}));
+
+
+const CuestionarioTerapeutaCard: React.FC<CuestionarioCardProps> = ({ cuestionario }) => {
     return (
-      <Card sx={{ minWidth: 275, marginBottom: 2 }}>
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {name}
+      <Card raised>
+      <StyledCardContent>
+        <Typography variant="h5" component="h2">
+          {cuestionario.name}
+        </Typography>
+        <Typography color="textSecondary">
+          Tipo: {cuestionario.tipo}
+        </Typography>
+        <Typography variant="body2" component="p" style={{ marginTop: '20px' }}>
+          Preguntas:
+        </Typography>
+        {cuestionario.preguntas && cuestionario.preguntas.length > 0 ? (
+          <List>
+            {cuestionario.preguntas.map((pregunta, index) => (
+              <ListItem key={index}>
+                <ListItemText primary={pregunta.text} secondary={`Tipo: ${pregunta.tipo}`} />
+              </ListItem>
+            ))}
+          </List>
+        ) : (
+          <Typography variant="body2" component="p">
+            No hay preguntas disponibles.
           </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            Tipo: {tipo}
-          </Typography>
-          <Typography variant="body2">
-            Modelo: {modelo ? 'Sí' : 'No'}
-            <br />
-            Preguntas: {preguntas.length}
-            <br />
-            Respuestas: {respuestas.length}
-          </Typography>
-        </CardContent>
+        )}
+        <div style={{ textAlign: 'center' }}>
+        <StyledButton variant="contained" color="primary">
+          Asignar a un paciente
+        </StyledButton>
+        </div>
+      </StyledCardContent>
       </Card>
     );
 };

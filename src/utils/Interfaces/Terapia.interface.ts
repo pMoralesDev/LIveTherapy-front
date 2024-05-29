@@ -1,4 +1,4 @@
-import { Cuestionario } from "./Cuestionarios.interface";
+import { ICuestionario } from "./back/ICuestionario.interface";
 
 
 export interface Terapia {
@@ -7,6 +7,6 @@ export interface Terapia {
     idTerapeuta: string;
     idPaciente: string;
     citas: string[];
-    registros: Cuestionario[];
+    registros: ICuestionario[];
     chat: string[];
   }

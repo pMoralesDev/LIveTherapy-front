@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { Cuestionario } from "../../../utils/Interfaces/Cuestionarios.interface";
+import { ICuestionario } from "../../../utils/Interfaces/back/ICuestionario.interface";
 
-const RegstroTerapeutaCard: React.FC<Cuestionario> = ({ _id, name, modelo, tipo, preguntas, respuestas }) => {
+const RegstroTerapeutaCard: React.FC<ICuestionario> = ({ _id, name, modelo, tipo, preguntas, respuestas }) => {
     return (
       <Card sx={{ minWidth: 275, marginBottom: 2 }}>
       <CardContent>
@@ -14,9 +14,9 @@ const RegstroTerapeutaCard: React.FC<Cuestionario> = ({ _id, name, modelo, tipo,
         <Typography variant="body2">
           Modelo: {modelo ? 'Sí' : 'No'}
           <br />
-          Preguntas: {preguntas.length}
+          Preguntas: {4}
           <br />
-          Respuestas: {respuestas.length}
+          Respuestas: {5}
         </Typography>
       </CardContent>
     </Card>

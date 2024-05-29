@@ -6,7 +6,7 @@ export enum questionType {
 
 export interface IQuestion {
   _id?: string;
-  name: string;
-  text: string;
-  tipo: questionType;
+  name?: string;
+  text?: string;
+  tipo?: questionType;
 }

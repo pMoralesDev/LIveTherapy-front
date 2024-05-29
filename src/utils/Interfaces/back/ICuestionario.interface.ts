@@ -1,3 +1,4 @@
+import { IQuestion } from "./IQuestion.interface";
 
 export enum cuestionarioTipo {
     AUTOINFORME = 'autoinforme',
@@ -8,9 +9,9 @@ export enum cuestionarioTipo {
 
 export interface ICuestionario {
     _id?: string;
-    name: string;
-    modelo: boolean;
-    tipo: string;
-    preguntas: string[];
-    respuestas: string[];
+    name?: string;
+    modelo?: boolean;
+    tipo?: string;
+    preguntas?: IQuestion[];
+    respuestas?: string[];
 }

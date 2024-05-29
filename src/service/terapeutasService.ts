@@ -1,10 +1,10 @@
-import { Cuestionario } from "../utils/Interfaces/Cuestionarios.interface";
 import { Terapia } from "../utils/Interfaces/Terapia.interface";
+import { ICuestionario } from "../utils/Interfaces/back/ICuestionario.interface";
 import axiosConfig from "../utils/config/axios.config";
 import { getUserIdFromToken } from "./tokenService";
 
 
-export const fetchCuestionariosForUser = async (token: string): Promise<Cuestionario[]> => {
+export const fetchCuestionariosForUser = async (token: string): Promise<ICuestionario[]> => {
   try {
     const userId = getUserIdFromToken(token);
     if (!userId) {

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Container, CssBaseline, Grid, Typography } from '@mui/material';
 import RegstroTerapeutaCard from './Cards/RegistroTerapeutaCard';
 import { fetchCuestionariosForUser } from '../../service/terapeutasService';
-import { Cuestionario } from '../../utils/Interfaces/Cuestionarios.interface';
+import { ICuestionario } from '../../utils/Interfaces/back/ICuestionario.interface';
+
 
 const TerapeutaRegistros: React.FC = () => {
-  const [registros, setRegistros] = useState<Cuestionario[]>([]);
+  const [registros, setRegistros] = useState<ICuestionario[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
