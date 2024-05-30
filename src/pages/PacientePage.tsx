@@ -3,9 +3,9 @@ import { CssBaseline, Container, Grid } from '@mui/material';
 import PacienteSidebar from '../components/Paciente/PacienteSidebar';
 import PacienteCuestionarios from '../components/Paciente/PacienteCuestionarios';
 import PacienteInformes from '../components/Paciente/PacienteInformes';
-import PacienteCitas from '../components/Paciente/PacienteCitas';
 import UserConfiguracion from '../components/UserConfiguration';
 import CustomHeader from '../components/Header';
+import Citas from '../components/Citas';
 
 const PacientePage: React.FC = () => {
 
@@ -18,7 +18,7 @@ const PacientePage: React.FC = () => {
       case 'informes':
         return <PacienteInformes />;
       case 'mis-citas':
-        return <PacienteCitas />;
+        return <Citas />;
       case 'configuracion':
         return <UserConfiguracion />;
       default:

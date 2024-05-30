@@ -6,9 +6,9 @@ import TerapeutaCuestionarios from '../components/Terapeuta/Terapeuta cuestionar
 import TerapeutaRegistros from '../components/Terapeuta/TerapeutaRegistros';
 import TerapeutaInformes from '../components/Terapeuta/TerapeutaInformes';
 import TerapeutaPacientes from '../components/Terapeuta/TerapeutaPacientes';
-import TerapeutaAgenda from '../components/Terapeuta/TerapeutaAgenda';
 import UserConfiguracion from '../components/UserConfiguration';
 import CustomHeader from '../components/Header';
+import Citas from '../components/Citas';
 
 
 const TerapeutaPage: React.FC = () => {
@@ -26,7 +26,7 @@ const TerapeutaPage: React.FC = () => {
       case 'pacientes':
         return <TerapeutaPacientes />;
       case 'agenda':
-        return <TerapeutaAgenda />;
+        return <Citas />;
       case 'configuracion':
         return <UserConfiguracion />;
       default:

@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ICita } from '../../utils/Interfaces/back/ICita.interface';
-import { AuthContext } from '../../utils/Interfaces/AuthInterface';
-import axiosConfig from '../../utils/config/axios.config';
-import InforemesPacienteCard from './InformesPacienteCard';
+import { useContext, useEffect, useState } from "react";
+import axiosConfig from "../utils/config/axios.config";
+import CitasCard from "./CitasCard";
+import { AuthContext } from "../utils/Interfaces/AuthInterface";
+import { ICita } from "../utils/Interfaces/back/ICita.interface";
 
-const PacienteInformes: React.FC = () => {
-  const [citas, setCitas] = useState<ICita[]>([]);
+
+const Citas = () => {
+    const [citas, setCitas] = useState<ICita[]>([]);
     const { user: authUser } = useContext(AuthContext);
 
     useEffect(() => {
@@ -34,10 +35,10 @@ const PacienteInformes: React.FC = () => {
     return (
         <div>
             {citas.map(cita => (
-                <InforemesPacienteCard key={cita._id} citas={cita} />
+                <CitasCard key={cita._id} citas={cita} />
             ))}
         </div>
     );
-};
+}
 
-export default PacienteInformes;
+export default Citas;

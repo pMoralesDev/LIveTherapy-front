@@ -3,7 +3,6 @@ import UserEditable from './UserEditable';
 import axiosConfig from '../utils/config/axios.config';
 import { AuthContext } from '../utils/Interfaces/AuthInterface';
 import { IUser } from '../utils/Interfaces/back/IUser.interface';
-import { Margin } from '@mui/icons-material';
 
 const UserConfiguration = () => {
 
@@ -42,10 +41,10 @@ const UserConfiguration = () => {
 
     return (
         <div>
-          <UserEditable label="Nombre" value={userDetails.name} onSave={(newValue: string | number) => handleSave('name', newValue)} />
-          <UserEditable label="Email" value={userDetails.email} onSave={(newValue: string | number) => handleSave('email', newValue)} />
-          <UserEditable label="Edad" value={userDetails.age.toString()} onSave={(newValue: string) => handleSave('age', parseInt(newValue, 10))} />
-          <UserEditable label="Telefono" value={userDetails.phone} onSave={(newValue: string | number) => handleSave('phone', newValue)} />
+          <UserEditable label="Nombre" value={userDetails.name ? userDetails.name : 'eror al cargar'} onSave={(newValue: string | number) => handleSave('name', newValue)} />
+          <UserEditable label="Email" value={userDetails.email ? userDetails.email : 'error al cargar'} onSave={(newValue: string | number) => handleSave('email', newValue)} />
+          <UserEditable label="Edad" value={userDetails.age ? userDetails.age.toString() : 'error al cargar'} onSave={(newValue: string) => handleSave('age', parseInt(newValue, 10))} />
+          <UserEditable label="Telefono" value={userDetails.phone ? userDetails.phone : 'error al cargar'} onSave={(newValue: string | number) => handleSave('phone', newValue)} />
         </div>
       );
 };

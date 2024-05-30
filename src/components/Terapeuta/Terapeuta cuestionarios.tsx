@@ -24,11 +24,11 @@ const TerapeutaCuestionarios: React.FC = () => {
   return (
     <>
       <CssBaseline />
-      <Container>
-        <Typography variant="h4" component="h1" gutterBottom>
+      <Container style={{alignItems: 'center'}}>
+        <Typography variant="h4" component="h1" gutterBottom style={{marginLeft: '33rem'}}>
           Cuestionarios
         </Typography>
-        <Button variant="contained" color="primary" style={{marginBottom: '20px'}}>
+        <Button variant="contained" color="primary" style={{marginBottom: '35px', textAlign: 'center', marginLeft: '30rem'}}>
           Crear cuestionario personalizado
         </Button>
         <Grid container spacing={2}>

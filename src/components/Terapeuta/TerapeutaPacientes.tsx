@@ -19,7 +19,7 @@ const TerapeutaPacientes: React.FC = () => {
 
     return (
         <div>
-            <h1>Pacientes del Terapeuta</h1>
+            <h1 style={{textAlign: 'center'}}>Tus Pacientes</h1>
             <PacienteTerapeutaCard pacientes={pacientes} />
         </div>
     );
