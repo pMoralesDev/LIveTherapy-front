@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { CssBaseline, Container, Grid } from '@mui/material';
-import PacienteHeader from '../components/Paciente/PacienteHeader';
 import PacienteSidebar from '../components/Paciente/PacienteSidebar';
 import PacienteCuestionarios from '../components/Paciente/PacienteCuestionarios';
 import PacienteInformes from '../components/Paciente/PacienteInformes';
 import PacienteCitas from '../components/Paciente/PacienteCitas';
 import UserConfiguracion from '../components/UserConfiguration';
+import CustomHeader from '../components/Header';
 
 const PacientePage: React.FC = () => {
 
@@ -31,7 +31,7 @@ const PacientePage: React.FC = () => {
       <CssBaseline />
       <Grid container direction="column">
         <Grid item xs={12}>
-          <PacienteHeader />
+          <CustomHeader />
         </Grid>
         <Grid item container style={{ flexWrap: 'nowrap' }}>
           <Grid item xs={1} >

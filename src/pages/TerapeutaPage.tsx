@@ -7,8 +7,8 @@ import TerapeutaRegistros from '../components/Terapeuta/TerapeutaRegistros';
 import TerapeutaInformes from '../components/Terapeuta/TerapeutaInformes';
 import TerapeutaPacientes from '../components/Terapeuta/TerapeutaPacientes';
 import TerapeutaAgenda from '../components/Terapeuta/TerapeutaAgenda';
-import TerapeutaHeader from '../components/Terapeuta/TerapeutaHeader';
 import UserConfiguracion from '../components/UserConfiguration';
+import CustomHeader from '../components/Header';
 
 
 const TerapeutaPage: React.FC = () => {
@@ -39,7 +39,7 @@ const TerapeutaPage: React.FC = () => {
       <CssBaseline />
       <Grid container direction="column">
         <Grid item>
-          <TerapeutaHeader />
+          <CustomHeader />
         </Grid>
         <Grid item container>
           <Grid item>
