@@ -12,4 +12,5 @@ export enum UserRoles {
         email?: string;
         age?: number;
         phone?: string;
+        password?: string;
     }
