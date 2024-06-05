@@ -7,7 +7,7 @@ interface informesCardProps {
 
 const InformesTerapeutaCard: React.FC<informesCardProps> = ({ informe }) => {
 
-    const dateObj = new Date(informe.fechaInforme);
+  const dateObj = new Date(informe.fechaInforme);
 
   const isValidDate = !isNaN(dateObj.getTime());
   const formattedDate = isValidDate ? dateObj.toLocaleDateString('es-ES', {

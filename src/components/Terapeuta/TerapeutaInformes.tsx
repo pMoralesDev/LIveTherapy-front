@@ -12,7 +12,6 @@ const TerapeutaInformes: React.FC = () => {
       if (authUser){
         axiosConfig.get(`/terapias/citas/informes?id=${authUser.id}`)
         .then(response => {
-          console.log(response.data);
             setInformes(response.data);
         })
         .catch(error => {
