@@ -4,4 +4,6 @@ export interface ICita {
     date: Date,
     acude: boolean,
     informe: string,
+    terapeuta?: string,
+    paciente?:string,
 }

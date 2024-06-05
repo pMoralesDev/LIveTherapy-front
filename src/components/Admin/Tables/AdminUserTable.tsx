@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axiosConfig from '../../../utils/config/axios.config';
 import { IUser } from '../../../utils/Interfaces/back/IUser.interface';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
 
 export default function AdminUserTable() {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -92,7 +92,9 @@ export default function AdminUserTable() {
               </TableBody>
           </Table>
       </TableContainer>
-      <Button variant="contained" color="primary" onClick={() => handleOpenDialog()}>Add User</Button>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: 2, marginRight: 2 }}>
+      <Button variant="contained" color="primary" style={{marginBottom:'1rem'}}
+      onClick={() => handleOpenDialog()}>Add User</Button></Box>
       <Dialog open={openDialog} onClose={handleCloseDialog}>
           <DialogTitle>{isNewUser ? 'Add User' : 'Update User'}</DialogTitle>
           <DialogContent>
