@@ -1,11 +1,21 @@
 import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import { IUser } from "../../../utils/Interfaces/back/IUser.interface";
+import { useState } from "react";
+import TerapiaPacienteCard from "./TerapiaPacienteCard";
 
 interface TerapeutaPacientesProps {
     pacientes: IUser[];
 }
 
 const PacienteTerapeutaCard: React.FC<TerapeutaPacientesProps> = ({ pacientes }) => {
+    const [showTerapia, setShowTerapia] = useState(false);
+    const [selectedPaciente, setSelectedPaciente] = useState<IUser | null>(null);
+    
+    const handleVerTerapias = (paciente: IUser) => {
+        setSelectedPaciente(paciente);
+        setShowTerapia(true);
+    };
+
     return (
         <Grid container spacing={2}>
             {pacientes.map((paciente) => (
@@ -24,13 +34,14 @@ const PacienteTerapeutaCard: React.FC<TerapeutaPacientesProps> = ({ pacientes })
                             <Typography color="textSecondary">
                                 Telefono: {paciente.phone}
                             </Typography>
-                            <Button variant="contained" color="primary" style={{ marginTop: 16 }}>
+                            <Button variant="contained" color="primary" style={{ marginTop: 16 }} onClick={() => handleVerTerapias(paciente)}>
                                 Ver Terapias
                             </Button>
                         </CardContent>
                     </Card>
                 </Grid>
             ))}
+            {showTerapia && selectedPaciente && <TerapiaPacienteCard paciente={selectedPaciente}/>}
         </Grid>
     );
 };

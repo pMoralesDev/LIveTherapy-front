@@ -1,3 +1,4 @@
+import { IUser } from "../utils/Interfaces/back/IUser.interface";
 import axiosConfig from "../utils/config/axios.config";
 
 
@@ -31,15 +32,15 @@ export const login = (email:string, password:string) => {
 export const register = (name:string, email:string, role:string, password:string, age:number, phone: string) => {
 
     // Declaramos el body para incluirlo en el POST
-    const body = {
-        name,
-        email,
-        role,
-        password,
-        age,
-        phone
+    const body:IUser = {
+        role: role,
+        name: name,
+        email: email,
+        password: password,
+        age: age,
+        phone: phone
     }
-
+    console.log(body)
     // Enviamos la peticion POST al endpoint de login
     return axiosConfig.post('auth/register', body)
 }

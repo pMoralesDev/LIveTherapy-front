@@ -47,7 +47,6 @@ interface CuestionarioCardProps {
           
         });
 
-        console.log(respuestasArray);
         try {
           for (const respuesta of respuestasArray) {
             const response = await axiosConfig.post('/cuestionarios/answers', respuesta);

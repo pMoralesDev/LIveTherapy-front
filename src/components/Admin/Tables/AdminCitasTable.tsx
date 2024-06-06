@@ -74,7 +74,6 @@ export default function AdminCitasTable() {
                     <TableBody>
                     {terapias.map(terapia => (
                         <React.Fragment key={terapia._id}>
-                            
                             {terapia.citas.map(citaId => {
                                 const cita : ICita = citaId as unknown as ICita;
                                 const terapeuta : IUser = terapia.idTerapeuta as unknown as IUser

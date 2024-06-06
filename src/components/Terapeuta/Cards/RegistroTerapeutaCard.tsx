@@ -22,7 +22,7 @@ const RegistroTerapeutaCard: React.FC<RegistrosCardProps> = ({ registro }) => {
           <List>
             {registro.preguntas.map((pregunta, index) => (
               <ListItem key={index}>
-                <ListItemText primary={pregunta.text} secondary={`Tipo: ${pregunta.tipo}`} />
+                <ListItemText primary={pregunta.text} />
               </ListItem>
             ))}
           </List>

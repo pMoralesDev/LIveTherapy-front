@@ -3,6 +3,7 @@ import axiosConfig from "../utils/config/axios.config";
 import CitasCard from "./CitasCard";
 import { AuthContext } from "../utils/Interfaces/AuthInterface";
 import { ICita } from "../utils/Interfaces/back/ICita.interface";
+import { Button } from "@mui/material";
 
 
 const Citas = () => {
@@ -37,6 +38,9 @@ const Citas = () => {
             {citas.map(cita => (
                 <CitasCard key={cita._id} citas={cita} />
             ))}
+            {authUser?.role === 'terapeuta' && (
+                <Button variant="contained" color="primary">Asignar Cita</Button>
+            )}
         </div>
     );
 }
